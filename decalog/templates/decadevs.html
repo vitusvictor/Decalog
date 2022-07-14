@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}
+   Decadevs
+{% endblock %}
+{% block content %}
+
+<div class="row" style="margin-top:20px; margin-left:20px" id="decadevs">
+
+   <div class="col mr-5">
+       <h2 style="padding: 1rem;">Decadevs</h2>
+       <br>
+       <table class="table table-hover table-striped table-secondary">
+         <thead class="thead-light">
+            <tr>
+               <!-- Your Columns HERE -->
+               <th scope="col">No</th>
+               <th scope="col">Name(s)</th>
+               <th scope="col">Lastname</th>
+               <th scope="col">Phone</th>
+               <th scope="col">Email</th>
+               <th scope="col">Status</th>
+
+               {% if current_user.is_authenticated and current_user.username=='Admin' %}
+                  <th scope="col">Stack</th>
+                  <th scope="col">Room No</th>
+                  <th scope="col">Assign</th>
+               {% endif %}
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for user in users %}
+            {% if not user.id == 1 %}
+            <tr>
+               <td>{{ loop.index-1 }}</td>
+               <td>{{ user.names }}</td>
+               <td>{{ user.lastname }}</td>
+               <td>{{ user.phone }}</td>
+               <td>{{ user.email_address }}</td>
+
+
+                <!-- render for every other decadevs -->
+                {% if user.id != current_user.id %}
+                {% if user.status == 'Available' %}
+                   <td><input name="td-available" type="text" value="Available" class="btn btn-success" readonly></td>      
+                {% else %}
+                   <td><input name="td-unavailable" type="text" value="Unavailable" class="btn btn-warning" readonly></td>      
+                {% endif %}
+             {% else %}
+
+             <!-- render for yourself -->
+             <form method="POST" class="" action="/user_availability" style="color:white">
+                <input name="id" type="hidden" value="{{ current_user.id }}">
+                {% if user.status == 'Available' %}
+                   <td><input name="td-available" type="submit" value="Available" class="btn btn-success"></td>      
+                {% else %}
+                   <td><input name="td-unavailable" type="submit" value="Unavailable" class="btn btn-warning"></td>      
+                {% endif %}
+             {% endif %}
+             </form>
+
+
+               {% if current_user.is_authenticated and current_user.username=='Admin' %}
+                  <td>{{ user.stack }}</td>
+                  <td>{{ user.room_number }}</td>
+                  <td scope="col">
+                     <a class="btn btn-outline btn-success" href="/user_edit/{{ user['id'] }}">Edit</a>
+                  </td>
+               {% endif %}
+            </tr>
+            {% endif %}
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+</div>
+{% endblock %}

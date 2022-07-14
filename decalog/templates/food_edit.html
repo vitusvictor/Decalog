@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Kitchen menu edit
+{% endblock %}
+
+{% block content %}
+    {% if current_user.is_authenticated and current_user.username=='Admin' %}
+        <div class="text-center mr-5" id="edit">
+            <div class="container my-5 mx-auto">
+                <h2>Meal Time Table</h2>
+                <form action="/food_edit/{{ food_e.id }}" class="form-group mb-2" style="color:white" method="POST" >
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="date" class="form-control mx-auto w-auto" value="{{food_e.date}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">                            
+                            <input type="text" name="brunch" class="form-control mx-auto w-auto" value="{{food_e.brunch}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="dinner" class="form-control mx-auto w-auto" value="{{food_e.dinner}}">
+                        </div>
+                        <input type="submit" class="btn btn-primary mb-2" value="Submit">
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+

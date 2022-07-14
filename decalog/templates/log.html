@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+   Daily log
+{% endblock %}
+{% block content %}
+
+
+<div class="row" style="margin-top:20px; margin-left:20px" id="decadevs">
+
+   <div class="col mr-5">
+       <h2 style="padding: 1rem;">Daily log</h2>
+       <br>
+       <table class="table table-hover table-dark">
+         <thead>
+            <tr class="log-table">
+               <!-- Your Columns HERE -->
+               <th scope="col">No</th>
+               <th scope="col">Day</th>
+               <th scope="col">Date</th>
+               <th scope="col">Name(s)</th>
+               <th scope="col">Lastname</th>
+               <th scope="col">User id</th>
+               <th scope="col">Sign out</th>
+               <th scope="col">Sign in</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for person in log %}
+            <tr>
+               <td>{{ person.id }}</td>
+               <td>{{ person.day }}</td>
+               <td >{{ person.date }}</td>
+               <td>{{ person.names }}</td>
+               <td>{{ person.lastname }}</td>
+               <td>{{ person.user_id }}</td>
+               <td>{{ person.signout_time }}</td>
+               <td>{{ person.signin_time }}</td>
+            </tr>
+            {% endfor %}
+            
+         </tbody>
+      </table>
+   </div>
+</div>
+{% endblock %}

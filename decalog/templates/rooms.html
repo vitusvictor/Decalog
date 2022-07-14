@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %}
+   Rooms
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="text-center mr-5 mt-5" id="room-container">
+        <h2 style="padding-top: 1rem;">Rooms</h2>
+        <!-- evaluations -->
+        <div id="room">
+    
+
+        <div class="row mt-5" style="padding-top: 1rem;">
+            <div class="col-3">
+                <div class="btn btn-outline btn-info">Room 401</div>
+                <p> {{ room_numbers[0]|length }} member{% if room_numbers[0]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col-3">
+                <div class="btn btn-outline btn-info">Room 402</div>
+                <p> {{ room_numbers[1]|length }} member{% if room_numbers[1]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col-3">
+                <div class="btn btn-outline btn-info">Room 403</div>
+                <p> {{ room_numbers[2]|length }} member{% if room_numbers[2]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col-3">
+                <div class="btn btn-outline btn-info">Room 404</div> 
+                <p> {{ room_numbers[3]|length }} member{% if room_numbers[3]|length > 1 %}s{% endif %} </p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 501</div> 
+                <p> {{ room_numbers[4]|length }} member{% if room_numbers[4]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 502</div> 
+                <p> {{ room_numbers[5]|length }} member{% if room_numbers[5]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 503</div> 
+                <p> {{ room_numbers[6]|length }} member{% if room_numbers[6]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 504</div> 
+                <p> {{ room_numbers[7]|length }} member{% if room_numbers[7]|length > 1 %}s{% endif %} </p>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 601</div> 
+                <p> {{ room_numbers[8]|length }} member{% if room_numbers[8]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 602</div> 
+                <p> {{ room_numbers[9]|length }} member{% if room_numbers[9]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col col-3"> 
+                <div class="btn btn-outline btn-info">Room 603</div> 
+                <p> {{ room_numbers[10]|length }} member{% if room_numbers[10]|length > 1 %}s{% endif %} </p>
+            </div>
+            <div class="col col-3">
+                <div class="btn btn-outline btn-info">Room 604</div>
+                <p> {{ room_numbers[11]|length }} member{% if room_numbers[11]|length > 1 %}s{% endif %} </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- tables -->
+   <div class="container my-2 mx-auto mt-5">
+    {% for room in room_numbers %}
+        {% if loop.index == 1 %} <h3 class="text-left">Room 401</h3>
+        {% elif loop.index == 2 %} <h3 class="text-left">Room 402</h3>
+        {% elif loop.index == 3 %} <h3 class="text-left">Room 403</h3>
+        {% elif loop.index == 4 %} <h3 class="text-left">Room 404</h3>
+        {% elif loop.index == 5 %} <h3 class="text-left">Room 501</h3>
+        {% elif loop.index == 6 %} <h3 class="text-left">Room 502</h3>
+        {% elif loop.index == 7 %} <h3 class="text-left">Room 503</h3>
+        {% elif loop.index == 8 %} <h3 class="text-left">Room 504</h3>
+        {% elif loop.index == 9 %} <h3 class="text-left">Room 601</h3>
+        {% elif loop.index == 10 %} <h3 class="text-left">Room 602</h3>
+        {% elif loop.index == 11 %} <h3 class="text-left">Room 603</h3>
+        {% elif loop.index == 12 %} <h3 class="text-left">Room 604</h3>
+        {% endif %}
+
+        <table class="table table-hover table-secondary table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Stack</th>
+                    <th scope="col">User ID</th>
+                </tr>
+            </thead>
+
+            {% for person in room %}
+            <tbody>
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ person.names }}</td>
+                    <td>{{ person.lastname }}</td>
+                    <td>0{{ person.phone }}</td>
+                    <td>{{ person.email_address }}</td>
+                    <td>{{ person.stack }}</td>
+                    <td>{{ person.id }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

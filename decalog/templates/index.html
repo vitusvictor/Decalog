@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card mb-3 home" id="index">
+        <div class="card-body mt-5">
+    
+            <div class="text-center" >
+                <h2 style="text-align: center;">DECALOG</h2>
+                <p>
+                    <hr size="2">
+                </p>
+                <div class="container" >
+        
+                    <!-- first row -->
+                    <div class="row mb-5">
+                        <div class="col">
+                            <!-- <div style="background-color: purple; border-radius: 50%; width:100px; height: 100px;"></div> -->
+                            <img src="static/group.jpg" class="group-image" alt="A picture of three students" />
+                        </div>
+                        <!-- <br> -->
+
+                        <div class="col">
+                            <h2>About The Project</h2>
+                            <p >The Decalog is a facility system designed to create account for users and admin, allocate rooms
+                                to the new decadevs, provides decadev with information such as available classes, meal time
+                                table, and keeps record of all decadevs.
+                            </p>
+                        </div>
+                    </div>
+        
+
+
+                    <!-- second row -->
+                    <h2>Project Developers</h2>
+                    <div class="row mb-5 mt-4">
+                        <div class="col">
+                            <img src="static/Doris.jpeg" alt="A picture" id="doris">
+                            <h6>Frontend Developer<br>(HTML, CSS, JS)</h6>
+    
+                        </div>
+    
+                        <div class="col">
+                            <img src="static/somto.jpg" alt="A picture" id="doris">
+                            <h6>Backend Developer<br>(Java)</h6>
+                        </div>
+                    </div>
+
+
+
+                    <!-- third row -->
+                    <div class="row">
+                        <div class="col">
+                            <img src="static/yusuf.jpg" alt="A picture" id="doris">
+                            <h6>Frontend Developer<br>(HTML, CSS, JS)</h6>
+    
+                        </div>
+
+                        <div class="col">
+                            <img src="static/Josh.jpg" alt="A picture" id="doris">
+                            <h6>Backend Developer<br>(Flask Python)</h6>
+    
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

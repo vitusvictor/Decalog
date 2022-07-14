@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   User edit
+{% endblock %}
+
+{% block content %}
+    {% if current_user.is_authenticated and current_user.username=='Admin' %}
+        <div class="text-center mr-5" id="user-edit">
+            <div class="container my-5 mx-auto">
+                <h2>Edit User Information</h2>
+                <form action="/user_edit/{{ user_e.id }}" class="form-group mb-2" style="color:white" method="POST" >
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="names" class="form-control mx-auto w-auto" value="{{user_e.names}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">                            
+                            <input type="text" name="lastname" class="form-control mx-auto w-auto" value="{{user_e.lastname}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="phone" class="form-control mx-auto w-auto" value="{{user_e.phone}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="email" class="form-control mx-auto w-auto" value="{{user_e.email_address}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="stack" class="form-control mx-auto w-auto" placeholder="Stack" value="{{user_e.stack}}">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" name="room" class="form-control mx-auto w-auto" placeholder="Room no" value="{{user_e.room_number}}">
+                        </div>
+                        <input type="submit" class="btn btn-primary mb-2" value="Submit">
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+

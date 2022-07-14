@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #012330;
+    color: #fff;
+}
+
+#index {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+.home h1 {
+    font-weight: bold;
+    font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home p {
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#footer {
+    box-sizing: border-box;
+    max-height: 2rem;
+    background-color: #212121;
+}
+
+#my-image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+}
+
+#my-icon {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 4rem;
+    margin-bottom: 1rem;
+}
+
+#my-display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: #212121
+}
+
+#market h1 {
+    margin: 2rem 0 0 1rem;
+}
+
+#login-page {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+#register {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background8.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 110vh;
+
+}
+
+#decalog{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 110vh;
+    margin-left: 20px;
+    padding-left: 40px; 
+    display: flex;
+    
+}
+.meal-table{
+    background: url(kitchen3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+    margin-left: 20px;
+    padding-left: 40px; 
+    display:flex;
+}
+/* #table-kitchen{
+    background-color: rgb(43, 153, 226);
+} */
+#edit{
+    background: url(kitchen4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#class{
+    background: url(background7.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+#decadevs{
+    background: url(people.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+#user-edit{
+    background: url(register.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+#room{
+    background: url(room5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+#room-container{
+    background-color: rgb(4, 57, 71);
+}
+#doris{
+    border-radius: 50px;
+    width: 110px;
+    margin-right: 50px;
+    
+}
+#nav{
+    background-color: #ffffff;
+    color: #ffffff;
+    /* background-repeat: no-repeat;
+    width: 185;
+    background-position: center;
+    height: 20px; */
+
+}
+
+/* .left, .right {
+    flex: 1;
+    align-items: center;
+} */
+
+/* .up-left, .up-right {
+    height: 50%;
+    justify-content: center;
+} */
+.group-image{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+/* .bottom-left{
+    justify-content: center;
+} */
+.log-table{
+    background-color: rgb(75, 74, 54);
+}
+.navbar{
+    /* width: 85%; */
+    /* margin: auto; */
+    /* padding: 35px 0; */
+    /* display:flex; */
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.navbar ul li{
+    list-style: none;
+    /* display: inline-block; */
+    /* margin: 0 20px; */
+    position: relative;
+}
+
+.nav-item{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    /* bottom: -10px; */
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position:absolute;
+    top: 50%;
+    transform: tranlateY(-50%);
+    text-align: center;
+    color: #0f0;
+}

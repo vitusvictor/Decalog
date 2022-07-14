@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+   Menu
+{% endblock %}
+{% block content %}
+<div class="container my-5">
+<div class="meal-table">
+   <div class="col mr-5 kitchen">
+       <h2 style="padding-top: 1rem;">Menu</h2>
+       <br>
+      <table class="table table-hover table-striped table-secondary">
+         <thead class="thead-light">
+            <tr>
+               <!-- Your Columns HERE -->
+               <th scope="col">Date</th>
+               <th scope="col">Brunch</th>
+               <th scope="col">Dinner</th>
+               {% if current_user.is_authenticated and current_user.username=='Admin' %}
+                  <th scope="col">Options</th>
+               {% endif %}
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for item in items %}
+            <tr>
+               <td>{{ item.date }}</td>
+               <td>{{ item.brunch }}</td>
+               <td>{{ item.dinner }}</td>
+               {% if current_user.is_authenticated and current_user.username=='Admin' %}
+                  <td>
+                     <a class="btn btn-outline btn-success" href="/delete/{{ item['id'] }}">Delete</a>
+                     <a class="btn btn-outline btn-success" href="/food_edit/{{ item['id'] }}">Edit</a>
+                  </td>
+               {% endif %}
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+
+      {% if current_user.is_authenticated and current_user.username=='Admin' %}
+      <div class="text-center mr-5">
+         <div class="container my-5 mx-auto" style="background: rgba(0,0,0,.5); padding: 0.5rem;">
+            <h2>Update Menu table</h2>
+               <form action="/foodmenu" method="POST" class="menu-form" style="color:white;">
+                  {{ menu_form.hidden_tag() }}
+                  <br>
+                  {{ menu_form.date(class="form-control mx-auto w-auto", placeholder="Date") }}
+                  <br>
+                  {{ menu_form.brunch(class="form-control w-auto mx-auto", placeholder="Brunch") }}
+                  <br>
+                  {{ menu_form.dinner(class="form-control w-auto mx-auto", placeholder="Dinner") }}
+                  <br>
+                  {{ menu_form.update(class="btn btn-lg btn-block btn-success w-auto mx-auto") }} 
+               </form>
+         </div>
+      </div>
+      {% endif %}
+   </div>
+</div>
+</div>
+{% endblock %}

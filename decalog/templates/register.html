@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <div class="text-center register">
+        <div class="container"   id="register">
+            <form method="POST" class="form-register" style="color:white">
+                {{ form.hidden_tag() }}
+                <img class="mb-4 mt-3" id="my-icon" src="static/logo2.png" alt="">
+                <h1 class="h1 mb-3 font-weight-normal">
+                    Create your Account
+                </h1>
+                
+                <br>
+                {{ form.names(class="form-control mx-auto w-50", placeholder="First and middle name") }}
+                <br>
+                {{ form.lastname(class="form-control mx-auto w-50", placeholder="Last Name") }}
+                <br>
+                {{ form.phone(class="form-control mx-auto w-50", placeholder="Phone Number") }}
+                <br>
+                <!-- {{ form.username.label() }} -->
+                {{ form.username(class="form-control mx-auto w-50", placeholder="User Name") }}
+                <br>
+                {{ form.email_address(class="form-control mx-auto w-50", placeholder="Email Address") }}
+
+                <br>
+                <!-- {{ form.password1.label() }} -->
+                {{ form.password1(class="form-control mx-auto w-50", placeholder="Password") }}
+
+                <br>
+                <!-- {{ form.password2.label() }} -->
+                {{ form.password2(class="form-control mx-auto w-50", placeholder="Confirm Password") }}
+                
+                <br>
+                {{ form.submit(class="btn btn-lg btn-block btn-primary mx-auto w-25") }}
+
+                <div class="checkbox mt-3">
+                    <h6>You have an account?</h6>
+                    <a class="btn btn-sm btn-success" href="{{ url_for('login_page') }}">Login</a>
+                 </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

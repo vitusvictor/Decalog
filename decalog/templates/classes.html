@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}
+   Classes
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4" id="class">
+   <h2 style="padding-top: 1rem;">Class rooms</h2>
+    <!-- <div class="col-3"> -->
+        <table class="table table-hover table-striped table-secondary text-center">
+            <thead class="thead-light">
+               <tr>
+                  <!-- Your Columns HERE -->
+                  <th scope="col">Class</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Status</th>
+                  
+                  <!-- only viewed by admin -->
+                  {% if current_user.is_authenticated and current_user.username=='Admin' %}
+                  <th scope="col">Status Update</th>
+                  {% endif %}
+               </tr>
+            </thead>
+            <tbody>
+               {% for class in classes %}
+               <tr>
+                  <td>{{ class.name}}</td>
+                  <td>{{ class.location }}</td>
+                    
+                  <!-- compare for availability -->
+                  {% if class.color == "red" %}
+                  <td><input class="btn btn-warning" value="{{ class.class_status }}">
+                  {% else %}
+                  <td><input class="btn btn-success" value="{{ class.class_status }}"> 
+                  {% endif %}
+                  
+                  <!-- to update status -->
+                  {% if current_user.is_authenticated and current_user.username=='Admin' %}
+                  <form method="POST" class="" action="/availability_update" style="color:white;">
+                    <input name="id" type="hidden" value="{{class.id}}">    
+                    <td><input name="upd" type="submit" value="Update status" class="btn btn-info"></td>      
+                  </form>
+                  {% endif %}
+
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+
+    <!-- </div> -->
+
+
+        {% if current_user.is_authenticated and current_user.username=='Admin' %}
+            <!-- write code to add class -->
+            <form method="POST" class="menu-form" action="/classes" class="" style="color:white;  background: rgba(0,0,0,.5);">
+                {{ cform.hidden_tag() }}
+                <br>
+                {{ cform.name(class="form-control w-auto mx-auto", placeholder="Class") }}
+                <br>
+                {{ cform.location(class="form-control w-auto mx-auto", placeholder="Location") }}
+                <br>
+                {{ cform.add_class(class="btn btn-lg btn-block btn-success w-auto mx-auto") }} 
+            </form>
+        {% endif %}
+    </div>
+
+
+
+
+{% endblock %}
